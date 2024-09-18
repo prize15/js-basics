@@ -1,0 +1,30 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript REPL</title>
+</head>
+<body>
+  <h1>Simple JavaScript REPL</h1>
+  <textarea id="code" rows="5" cols="50" placeholder="Enter JavaScript code here..."></textarea>
+  <br />
+  <button onclick="runCode()">Run Code</button>
+  <p>Output:</p>
+  <pre id="output"></pre>
+
+  <script>
+    function runCode() {
+      const code = document.getElementById('code').value;
+      let output;
+      try {
+        output = eval(code);  // Executes the JavaScript code
+      } catch (error) {
+        output = 'Error: ' + error.message;
+      }
+      document.getElementById('output').textContent = output;
+    }
+  </script>
+</body>
+</html>
